@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='/static/mymarket/css/style.css' rel='stylesheet' type='text/css'/>
+		<link href='/static/mymarket/css/kendo.common.min.css' rel='stylesheet' type='text/css'/>
+		<link href='/static/mymarket/css/kendo.default.min.css' rel='stylesheet' type='text/css'/>
+	</head>
+
+	<body>
+		<div id="content">
+			{% block content %}{% endblock %}
+		</div>
+		
+		<script type='text/javascript' src='/static/mymarket/js/jquery-1.7.1.min.js'></script>
+		<script type='text/javascript' src='/static/mymarket/js/kendo.all.min.js'></script>
+		{% block scripts %}{% endblock %}
+	</body>
+</html>

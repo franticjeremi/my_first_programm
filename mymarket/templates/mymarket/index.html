@@ -2,6 +2,52 @@
 	<meta charset="UTF-8">
 	<head></head>
 	<body>
-		фвапапа
+		{% extends "mymarket/layout.html" %}
+
+{% block content %}
+<h2>Kendo UI Widgets</h2>
+
+<div id='widgetsGrid'>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#widgetsGrid').kendoGrid({
+			dataSource: {
+				transport: {
+					read: {
+						url: '/mymarket/widgetsList/',
+						contentType: 'application/json; charset=utf-8',
+						type: 'GET',
+						dataType: 'json'
+					}
+				},
+				pageSize: 10
+			},
+			columns: [
+				{
+					field: 'name',
+					title: 'Name'
+				},
+				{
+					field: 'description',
+					title: 'Description'
+				},
+				{
+					field: 'url',
+					title: 'Url',
+					template: "<a href='${ url }'>${ url }</a>"
+				}
+			],
+			height: 500,
+			sortable: true,
+			pageable: true
+		});
+	});
+</script>
+{% endblock %}
+
 	</body>
 </html>
