@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404, render
 '''from django.template import RequestContext, loader'''
 import json
 from .models import Mymarket
@@ -19,3 +19,7 @@ def widgetsList(request):
         
     data = json.dumps(widgetsList)
     return HttpResponse(data, content_type='application/javascript')
+
+def showItems(request, mymarket_id):
+    item_id = get_object_or_404(Mymarket, pk=mymarket_id)
+    return render(request, 'mymarket/detail.html', {'mymarket': item_id})

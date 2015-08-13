@@ -17,5 +17,6 @@ from django.conf.urls import patterns,url
 
 urlpatterns = patterns('mymarket.views',
     url(r'^$', 'index'),
-    url(r'^widgetsList/$', 'widgetsList')
+    url(r'^widgetsList/$', 'widgetsList'),
+    url(r'^showItems/(?P<mymarket_id>\d+)/$', 'showItems')
 )
